@@ -1,4 +1,3 @@
-
 import json
 import html
 from pathlib import Path
@@ -6,19 +5,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "profile.json"
 INDEX_PATH = ROOT / "index.html"
+NL = chr(10)
 
 
 def safe(value):
-    """Escape text before inserting it into HTML."""
     return html.escape(str(value or ""), quote=True)
 
 
 def replace_between(document, start_marker, end_marker, new_content):
-    """Replace only the content between two existing HTML markers."""
     if start_marker not in document or end_marker not in document:
-        raise ValueError(
-            f"Missing marker: {start_marker} or {end_marker}"
-        )
+        raise ValueError(f"Missing marker: {start_marker} or {end_marker}")
 
     start = document.index(start_marker) + len(start_marker)
     end = document.index(end_marker)
@@ -26,7 +22,7 @@ def replace_between(document, start_marker, end_marker, new_content):
     if end < start:
         raise ValueError(f"Markers are in the wrong order: {start_marker}")
 
-    return document[:start] + "\n" + new_content + "\n" + document[end:]
+    return document[:start] + NL + new_content + NL + document[end:]
 
 
 def build_skills(skills):
@@ -34,15 +30,12 @@ def build_skills(skills):
 
     for category, items in skills.items():
         if not isinstance(items, list):
-            raise ValueError(
-                f"Skills for '{category}' must be a JSON array."
-            )
+            raise ValueError(f"Skills for '{category}' must be a JSON array.")
 
         tags = "".join(
             f'<span class="tag">{safe(item)}</span>'
             for item in items
         )
-
         output.append(
             '<div class="skill">'
             f'<h3>{safe(category)}</h3>'
@@ -50,7 +43,7 @@ def build_skills(skills):
             '</div>'
         )
 
-    return "\n".join(output)
+    return NL.join(output)
 
 
 def build_experience(experience_details):
@@ -73,7 +66,6 @@ def build_experience(experience_details):
         clients = job.get("clients", [])
         if isinstance(clients, str):
             clients = [clients]
-
         if not clients and job.get("client"):
             clients = [job["client"]]
 
@@ -83,7 +75,6 @@ def build_experience(experience_details):
             )
 
         highlights = job.get("highlights", [])
-
         if highlights:
             output.append("<ul>")
             for highlight in highlights:
@@ -92,7 +83,7 @@ def build_experience(experience_details):
 
         output.append("</article>")
 
-    return "\n".join(output)
+    return NL.join(output)
 
 
 def main():
@@ -103,11 +94,9 @@ def main():
 
     summary = safe(profile.get("summary", ""))
     skills = build_skills(profile.get("skills", {}))
-    experience = build_experience(
-        profile.get("experience_details", [])
-    )
+    experience = build_experience(profile.get("experience_details", []))
 
-    # Update the existing hero summary.
+    # Update the hero summary; preserve the original About section.
     html_content = replace_between(
         html_content,
         "<!-- HERO_SUMMARY_START -->",
@@ -115,15 +104,6 @@ def main():
         summary
     )
 
-    # Update the existing About summary.
-    html_content = replace_between(
-        html_content,
-        "<!-- ABOUT_SUMMARY_START -->",
-        "<!-- ABOUT_SUMMARY_END -->",
-        summary
-    )
-
-    # Update the existing skills grid.
     html_content = replace_between(
         html_content,
         "<!-- SKILLS_START -->",
@@ -131,7 +111,6 @@ def main():
         skills
     )
 
-    # Update the existing experience timeline.
     html_content = replace_between(
         html_content,
         "<!-- EXPERIENCE_START -->",
@@ -140,7 +119,6 @@ def main():
     )
 
     INDEX_PATH.write_text(html_content, encoding="utf-8")
-
     print("Portfolio sections updated successfully.")
 
 
