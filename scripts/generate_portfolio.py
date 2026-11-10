@@ -1,3 +1,4 @@
+
 import json
 import html
 from pathlib import Path
@@ -36,6 +37,7 @@ def build_skills(skills):
             f'<span class="tag">{safe(item)}</span>'
             for item in items
         )
+
         output.append(
             '<div class="skill">'
             f'<h3>{safe(category)}</h3>'
@@ -46,40 +48,50 @@ def build_skills(skills):
     return NL.join(output)
 
 
+def build_highlights(highlights):
+    if not highlights:
+        return ""
+
+    items = NL.join(
+        f"<li>{safe(item)}</li>" for item in highlights
+    )
+    return f"<ul>{NL}{items}{NL}</ul>"
+
+
 def build_experience(experience_details):
     output = []
 
     for job in experience_details:
-        company = safe(job.get("company"))
-        role = safe(job.get("role"))
-        period = safe(job.get("period"))
-
         output.append('<article class="job">')
         output.append(
             '<div class="jobtop">'
-            f'<div><h3>{company}</h3>'
-            f'<div class="meta">{role}</div></div>'
-            f'<div class="date">{period}</div>'
+            f'<div><h3>{safe(job.get("company"))}</h3>'
+            f'<div class="meta">{safe(job.get("role"))}</div></div>'
+            f'<div class="date">{safe(job.get("period"))}</div>'
             '</div>'
         )
 
-        clients = job.get("clients", [])
-        if isinstance(clients, str):
-            clients = [clients]
-        if not clients and job.get("client"):
-            clients = [job["client"]]
+        projects = job.get("projects")
 
-        if clients:
+        if projects:
+            for project in projects:
+                client = project.get("client", "")
+                if client:
+                    output.append(
+                        f'<div class="client">{safe(client)}</div>'
+                    )
+                output.append(
+                    build_highlights(project.get("highlights", []))
+                )
+        else:
+            client = job.get("client", "")
+            if client:
+                output.append(
+                    f'<div class="client">{safe(client)}</div>'
+                )
             output.append(
-                f'<div class="client">{safe(" · ".join(clients))}</div>'
+                build_highlights(job.get("highlights", []))
             )
-
-        highlights = job.get("highlights", [])
-        if highlights:
-            output.append("<ul>")
-            for highlight in highlights:
-                output.append(f"<li>{safe(highlight)}</li>")
-            output.append("</ul>")
 
         output.append("</article>")
 
@@ -94,9 +106,10 @@ def main():
 
     summary = safe(profile.get("summary", ""))
     skills = build_skills(profile.get("skills", {}))
-    experience = build_experience(profile.get("experience_details", []))
+    experience = build_experience(
+        profile.get("experience_details", [])
+    )
 
-    # Update the hero summary; preserve the original About section.
     html_content = replace_between(
         html_content,
         "<!-- HERO_SUMMARY_START -->",
