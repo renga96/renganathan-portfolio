@@ -4,69 +4,145 @@ import html
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+PROFILE_PATH = ROOT / "profile.json"
+INDEX_PATH = ROOT / "index.html"
 
-profile_path = ROOT / "profile.json"
-index_path = ROOT / "index.html"
 
-with profile_path.open("r", encoding="utf-8") as file:
-    profile = json.load(file)
+def safe(value):
+    """Escape text before inserting it into HTML."""
+    return html.escape(str(value or ""), quote=True)
 
-content = []
 
-content.append("<section class='generated-profile'>")
-content.append("<h2>Professional Profile</h2>")
-content.append(f"<h3>{html.escape(profile.get('headline', ''))}</h3>")
-content.append(f"<p>{html.escape(profile.get('summary', ''))}</p>")
+def replace_between(document, start_marker, end_marker, new_content):
+    """Replace only the content between two existing HTML markers."""
+    if start_marker not in document or end_marker not in document:
+        raise ValueError(
+            f"Missing marker: {start_marker} or {end_marker}"
+        )
 
-content.append("<h2>Technical Skills</h2>")
-for category, skills in profile.get("skills", {}).items():
-    content.append("<div class='skill-group'>")
-    content.append(f"<h3>{html.escape(category)}</h3>")
-    content.append(
-        f"<p>{html.escape(', '.join(skills))}</p>"
+    start = document.index(start_marker) + len(start_marker)
+    end = document.index(end_marker)
+
+    if end < start:
+        raise ValueError(f"Markers are in the wrong order: {start_marker}")
+
+    return document[:start] + "\n" + new_content + "\n" + document[end:]
+
+
+def build_skills(skills):
+    output = []
+
+    for category, items in skills.items():
+        if not isinstance(items, list):
+            raise ValueError(
+                f"Skills for '{category}' must be a JSON array."
+            )
+
+        tags = "".join(
+            f'<span class="tag">{safe(item)}</span>'
+            for item in items
+        )
+
+        output.append(
+            '<div class="skill">'
+            f'<h3>{safe(category)}</h3>'
+            f'<div class="tags">{tags}</div>'
+            '</div>'
+        )
+
+    return "\n".join(output)
+
+
+def build_experience(experience_details):
+    output = []
+
+    for job in experience_details:
+        company = safe(job.get("company"))
+        role = safe(job.get("role"))
+        period = safe(job.get("period"))
+
+        output.append('<article class="job">')
+        output.append(
+            '<div class="jobtop">'
+            f'<div><h3>{company}</h3>'
+            f'<div class="meta">{role}</div></div>'
+            f'<div class="date">{period}</div>'
+            '</div>'
+        )
+
+        clients = job.get("clients", [])
+        if isinstance(clients, str):
+            clients = [clients]
+
+        if not clients and job.get("client"):
+            clients = [job["client"]]
+
+        if clients:
+            output.append(
+                f'<div class="client">{safe(" · ".join(clients))}</div>'
+            )
+
+        highlights = job.get("highlights", [])
+
+        if highlights:
+            output.append("<ul>")
+            for highlight in highlights:
+                output.append(f"<li>{safe(highlight)}</li>")
+            output.append("</ul>")
+
+        output.append("</article>")
+
+    return "\n".join(output)
+
+
+def main():
+    with PROFILE_PATH.open("r", encoding="utf-8") as file:
+        profile = json.load(file)
+
+    html_content = INDEX_PATH.read_text(encoding="utf-8")
+
+    summary = safe(profile.get("summary", ""))
+    skills = build_skills(profile.get("skills", {}))
+    experience = build_experience(
+        profile.get("experience_details", [])
     )
-    content.append("</div>")
 
-content.append("<h2>Professional Experience</h2>")
-for job in profile.get("experience_details", []):
-    content.append("<article class='experience-item'>")
-    content.append(f"<h3>{html.escape(job.get('company', ''))}</h3>")
-    content.append(
-        f"<p><strong>{html.escape(job.get('role', ''))}</strong> "
-        f"| {html.escape(job.get('period', ''))}</p>"
+    # Update the existing hero summary.
+    html_content = replace_between(
+        html_content,
+        "<!-- HERO_SUMMARY_START -->",
+        "<!-- HERO_SUMMARY_END -->",
+        summary
     )
 
-    for highlight in job.get("highlights", []):
-        content.append(f"<p>• {html.escape(highlight)}</p>")
+    # Update the existing About summary.
+    html_content = replace_between(
+        html_content,
+        "<!-- ABOUT_SUMMARY_START -->",
+        "<!-- ABOUT_SUMMARY_END -->",
+        summary
+    )
 
-    content.append("</article>")
+    # Update the existing skills grid.
+    html_content = replace_between(
+        html_content,
+        "<!-- SKILLS_START -->",
+        "<!-- SKILLS_END -->",
+        skills
+    )
 
-content.append("</section>")
+    # Update the existing experience timeline.
+    html_content = replace_between(
+        html_content,
+        "<!-- EXPERIENCE_START -->",
+        "<!-- EXPERIENCE_END -->",
+        experience
+    )
 
-generated_html = "\n".join(content)
+    INDEX_PATH.write_text(html_content, encoding="utf-8")
 
-html_content = index_path.read_text(encoding="utf-8")
+    print("Portfolio sections updated successfully.")
 
-start_marker = "<!-- GENERATED_PROFILE_START -->"
-end_marker = "<!-- GENERATED_PROFILE_END -->"
 
-if start_marker not in html_content or end_marker not in html_content:
-    raise ValueError("Portfolio markers were not found in index.html")
-
-start = html_content.index(start_marker) + len(start_marker)
-end = html_content.index(end_marker)
-
-if end < start:
-    raise ValueError("Portfolio markers are in the wrong order")
-
-updated_html = (
-    html_content[:start]
-    + "\n"
-    + generated_html
-    + "\n"
-    + html_content[end:]
-)
-
-index_path.write_text(updated_html, encoding="utf-8")
-
-print("Portfolio content generated successfully.")
+if __name__ == "__main__":
+    main()
