@@ -1,0 +1,75 @@
+
+{
+  "name": "Renganathan Ramasamy",
+  "headline": "Senior QA Engineer | QA Automation | Test Lead",
+  "location": "Chennai, India",
+  "experience": "9+ years",
+  "email": "rrenganathan96@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/renganathan18/",
+  "summary": "Senior QA Engineer with 9+ years of experience across Healthcare, Insurance, Retail and Enterprise platforms. Experienced in functional testing, UI automation, API testing, backend validation, integration testing and Agile delivery.",
+  "domains": [
+    "Healthcare",
+    "Insurance",
+    "Retail",
+    "Enterprise"
+  ],
+  "skills": {
+    "UI Automation": ["Playwright", "TypeScript", "Selenium", "Java"],
+    "API Testing": ["REST Assured", "Postman", "SOAPUI"],
+    "Frameworks": ["Cucumber BDD", "TestNG", "Page Object Model"],
+    "Backend": ["Spring Boot", "Kafka", "PostgreSQL", "MS SQL"],
+    "Tools": ["JIRA", "TestRail", "HP ALM", "GitHub Actions", "Jenkins", "Maven"],
+    "Platforms": ["ServiceNow", "Guidewire PolicyCenter", "Guidewire BillingCenter", "Amazon Connect"]
+  },
+  "experience_details": [
+    {
+      "company": "Tata Consultancy Services",
+      "role": "IT Analyst",
+      "period": "Feb 2022 – Present",
+      "clients": ["Sainsbury's", "Mercury Insurance"],
+      "highlights": [
+        "Retail Master Data Management functional testing",
+        "API automation using REST Assured, Java and Cucumber BDD",
+        "UI automation using Playwright and TypeScript",
+        "PostgreSQL database and Kafka integration validation",
+        "ServiceNow ITSM/WESS workflow testing",
+        "Guidewire PolicyCenter and BillingCenter testing",
+        "Amazon Connect IVR migration validation",
+        "AI-assisted test case and automation script generation"
+      ]
+    },
+    {
+      "company": "Accenture Solutions Pvt Ltd",
+      "role": "Test Engineering Senior Analyst",
+      "period": "Jun 2017 – Jan 2022",
+      "client": "Kaiser Permanente",
+      "highlights": [
+        "Led an 8-member QA team",
+        "Maintained Selenium WebDriver automation using Java and TestNG",
+        "Managed approximately 2,000 regression test cases",
+        "Performed SOAP and REST API testing",
+        "Performed SQL backend validation",
+        "Supported functional, regression, SIT and UAT testing"
+      ]
+    }
+  ],
+  "certifications": [
+    "Google Gemini Enterprise Agent Development",
+    "Google Gemini Enterprise Deployment",
+    "Certified SAFe 5 Practitioner",
+    "ServiceNow ATF Micro Certification",
+    "Advanced Agile: Leadership Techniques",
+    "Certified Agile Software Development – Scrum",
+    "Selenium Automation Certification"
+  ],
+  "education": {
+    "degree": "B.E. Mechanical Engineering",
+    "college": "SRM Valliammai Engineering College",
+    "period": "2013 – 2017",
+    "cgpa": "7.7 / 10"
+  },
+  "awards": [
+    "ACE Award FY2020 – Accenture",
+    "On the Spot Award – Accenture"
+  ]
+}
