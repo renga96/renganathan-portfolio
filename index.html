@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Renganathan Ramasamy — Senior QA Engineer specialising in functional testing, Playwright, Selenium, API automation and backend validation." />
+  <meta name="theme-color" content="#101827" />
+  <title>Renganathan Ramasamy | Senior QA Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#627087;--navy:#101827;--blue:#3867f5;--cyan:#25b8c8;--line:#e5eaf2;--soft:#edf2ff;--shadow:0 18px 50px rgba(25,42,75,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+    header:before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-180px;top:-300px;background:radial-gradient(circle,rgba(56,103,245,.35),transparent 68%)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+    .brand{font-family:Manrope,sans-serif;font-weight:800;letter-spacing:.02em}.brand span{color:#7e9cff}
+    .navlinks{display:flex;gap:25px;font-size:13px;color:#c4cddd}.navlinks a:hover{color:#fff}
+    .hero{padding:92px 0 104px;display:grid;grid-template-columns:1.4fr .6fr;gap:55px;align-items:center;position:relative;z-index:1}
+    .eyebrow{color:#91aaff;text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700}
+    h1,h2,h3{font-family:Manrope,sans-serif;line-height:1.2}h1{font-size:clamp(38px,5.4vw,62px);letter-spacing:-.045em;margin:16px 0 12px}
+    .role{font-size:18px;color:#cbd5e5;font-weight:500}.intro{max-width:680px;color:#b5c1d2;font-size:16px;margin:22px 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:700;border:1px solid transparent;transition:.2s}
+    .btn.primary{background:#5279ff;color:#fff}.btn.primary:hover{background:#6a8cff;transform:translateY(-2px)}
+    .btn.ghost{border-color:#43516a;color:#fff}.btn.ghost:hover{background:#1b2940}
+    .hero-card{background:linear-gradient(145deg,#1c2b45,#142033);border:1px solid #31415d;border-radius:22px;padding:28px;box-shadow:0 24px 60px #070d18aa}
+    .hero-card .big{font:800 52px Manrope;color:#fff;letter-spacing:-.06em}.hero-card p{color:#b9c6d9;margin:0 0 18px;font-size:13px}
+    .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{border-top:1px solid #35445c;padding-top:12px}.stat strong{display:block;color:#fff;font:700 18px Manrope}.stat span{font-size:11px;color:#aebbd0}
+    main{padding:62px 0 30px}.section{margin-bottom:70px}.section-head{margin-bottom:25px}.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);font-weight:800}.section h2{font-size:30px;letter-spacing:-.035em;margin:8px 0}.sub{color:var(--muted);max-width:720px;margin:0}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 5px 24px rgba(25,42,75,.035)}
+    .panel p{color:var(--muted);margin:0}.focus-list{display:grid;gap:13px}.focus-item{display:flex;gap:12px;align-items:flex-start}.dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));margin-top:8px;flex:none}.focus-item strong{display:block;font-size:13px}.focus-item span{font-size:12px;color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skill{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}.skill h3{font-size:14px;margin:0 0 12px}.tags{display:flex;flex-wrap:wrap;gap:7px}.tag{background:#f0f4fb;color:#43516a;border-radius:7px;padding:5px 8px;font-size:11px;font-weight:600}
+    .timeline{position:relative;padding-left:25px}.timeline:before{content:"";position:absolute;left:5px;top:7px;bottom:8px;width:2px;background:#dce4f2}
+    .job{position:relative;margin-bottom:22px}.job:before{content:"";position:absolute;left:-25px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:3px solid #e3eaff}
+    .jobtop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.job h3{font-size:17px;margin:0 0 4px}.meta{font-size:12px;color:var(--muted)}.date{font-size:11px;color:#53647e;background:#edf2fb;padding:6px 9px;border-radius:7px;white-space:nowrap}
+    .client{font-size:12px;color:#3158ce;font-weight:700;margin:10px 0 8px}.job ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}.job li{padding:3px 0}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.project{background:#fff;border:1px solid var(--line);border-radius:17px;padding:23px;position:relative;overflow:hidden}.project:after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:#edf2ff;right:-42px;top:-42px}.project h3{font-size:16px;margin:0 0 9px;position:relative;z-index:1}.project p{font-size:13px;color:var(--muted);margin:0 0 14px;position:relative;z-index:1}.project .tags{position:relative;z-index:1}
+    .certs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.cert{background:#fff;border:1px solid var(--line);padding:14px 16px;border-radius:11px;font-size:13px}.cert span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+    .education{display:flex;justify-content:space-between;gap:20px;align-items:center}.education h3{margin:0 0 5px;font-size:16px}.education p{margin:0;color:var(--muted);font-size:13px}
+    .contact{background:var(--navy);color:#fff;border-radius:22px;padding:36px;display:flex;justify-content:space-between;gap:24px;align-items:center}.contact h2{margin:0 0 8px;font-size:27px}.contact p{margin:0;color:#b9c6d9;font-size:13px}.contact-links{display:flex;gap:10px;flex-wrap:wrap}.contact-links a{background:#263550;border:1px solid #3a4c69;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:600}
+    footer{padding:24px 0 35px;text-align:center;color:#8491a5;font-size:11px}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding:68px 0 75px;gap:32px}.hero-card{max-width:420px}.about-grid{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.navlinks{gap:13px}.navlinks a:nth-child(2),.navlinks a:nth-child(3){display:none}}
+    @media(max-width:560px){.wrap{width:min(100% - 28px,1120px)}nav{height:65px}.navlinks{font-size:11px;gap:11px}.hero{padding:55px 0 60px}h1{font-size:40px}.role{font-size:15px}.intro{font-size:14px}.section h2{font-size:25px}.skills,.project-grid,.certs{grid-template-columns:1fr}.jobtop{display:block}.date{display:inline-block;margin-top:8px}.contact{display:block;padding:27px}.contact-links{margin-top:20px}.education{display:block}}
+  </style>
+</head>
+<body>
+<header id="top">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">RR<span>.</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Quality Engineering · Chennai, India</div>
+        <h1>Renganathan<br>Ramasamy<span style="color:#7e9cff">.</span></h1>
+        <div class="role">Senior QA Engineer&nbsp; | &nbsp;QA Automation&nbsp; | &nbsp;Test Lead</div>
+        <p class="intro">I bring 9+ years of software quality assurance experience across Healthcare, Insurance, Retail and Enterprise platforms. My work spans functional testing, UI and API automation, backend validation, integration testing and Agile delivery.</p>
+        <div class="actions">
+          <a class="btn primary" href="assets/Renganathan_R_QA_Resume.pdf" download>Download Resume ↓</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/renganathan18/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="big">9+</div><p>Years in Quality Assurance</p>
+        <div class="statgrid">
+          <div class="stat"><strong>4</strong><span>Business domains</span></div>
+          <div class="stat"><strong>UI + API</strong><span>Automation coverage</span></div>
+          <div class="stat"><strong>Agile</strong><span>Delivery experience</span></div>
+          <div class="stat"><strong>QA Lead</strong><span>Team coordination</span></div>
+        </div>
+      </aside>
+    </section>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="section" id="about">
+    <div class="section-head"><div class="kicker">Profile</div><h2>About me</h2><p class="sub">A quality-focused engineer combining practical testing, automation and cross-team collaboration to support reliable software delivery.</p></div>
+    <div class="about-grid">
+      <div class="panel"><p>Experienced in test planning, test strategy, requirements traceability and defect management. Hands-on with Playwright and TypeScript, Selenium with Java and TestNG, and API automation using REST Assured and Postman. I also work with Spring Boot-based services, Kafka integrations and PostgreSQL/MS SQL database validation.</p></div>
+      <div class="panel focus-list">
+        <div class="focus-item"><i class="dot"></i><div><strong>End-to-end quality</strong><span>Functional, regression, integration, SIT and UAT</span></div></div>
+        <div class="focus-item"><i class="dot"></i><div><strong>Automation</strong><span>Playwright, Selenium, REST Assured and Cucumber BDD</span></div></div>
+        <div class="focus-item"><i class="dot"></i><div><strong>Team collaboration</strong><span>Agile delivery, mentoring and stakeholder coordination</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-head"><div class="kicker">Capabilities</div><h2>Technical skills</h2><p class="sub">Tools and technologies listed in my professional experience.</p></div>
+    <div class="skills">
+      <div class="skill"><h3>Test Engineering</h3><div class="tags"><span class="tag">Test Planning</span><span class="tag">Test Strategy</span><span class="tag">Test Case Design</span><span class="tag">STLC</span><span class="tag">RTM</span><span class="tag">Defect Lifecycle</span></div></div>
+      <div class="skill"><h3>Testing Types</h3><div class="tags"><span class="tag">Functional</span><span class="tag">Regression</span><span class="tag">Smoke</span><span class="tag">Integration</span><span class="tag">SIT</span><span class="tag">UAT</span><span class="tag">Exploratory</span></div></div>
+      <div class="skill"><h3>UI Automation</h3><div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">Selenium</span><span class="tag">Java</span><span class="tag">TestNG</span><span class="tag">POM</span></div></div>
+      <div class="skill"><h3>API & Integration</h3><div class="tags"><span class="tag">REST Assured</span><span class="tag">Postman</span><span class="tag">SOAPUI</span><span class="tag">Spring Boot</span><span class="tag">Kafka</span><span class="tag">Cucumber BDD</span></div></div>
+      <div class="skill"><h3>Database & Delivery</h3><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MS SQL</span><span class="tag">DBVisualizer</span><span class="tag">Maven</span><span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span></div></div>
+      <div class="skill"><h3>Platforms & Tools</h3><div class="tags"><span class="tag">ServiceNow</span><span class="tag">Guidewire</span><span class="tag">Amazon Connect</span><span class="tag">JIRA</span><span class="tag">TestRail</span><span class="tag">HP ALM</span><span class="tag">AI Agents / MCP</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="section-head"><div class="kicker">Career</div><h2>Professional experience</h2><p class="sub">Experience across retail, insurance, enterprise services and healthcare applications.</p></div>
+    <div class="panel timeline">
+      <article class="job">
+        <div class="jobtop"><div><h3>Tata Consultancy Services</h3><div class="meta">IT Analyst · Chennai</div></div><div class="date">Feb 2022 – Present</div></div>
+        <div class="client">Retail · Sainsbury’s</div>
+        <ul>
+          <li>Perform sprint-based functional testing for Master Data Management workflows supporting retail supply chain operations.</li>
+          <li>Develop API automation suites for Spring Boot services using REST Assured, Java and Cucumber BDD.</li>
+          <li>Design and maintain UI automation tests using Playwright and TypeScript, extending existing frameworks when required.</li>
+          <li>Validate PostgreSQL data changes and Kafka event flows across upstream and downstream systems.</li>
+          <li>Use a custom AI agent integrated through MCP to generate test cases and automation scripts from user stories and documentation; collaborate with business stakeholders to refine scenarios.</li>
+          <li>Trigger and monitor automation builds through GitHub Actions as part of the CI workflow.</li>
+        </ul>
+        <div class="client">Insurance & Enterprise Services · Mercury Insurance</div>
+        <ul>
+          <li>Designed and developed a Selenium WebDriver framework using Java, TestNG, Page Object Model and data-driven testing, with Jenkins and Maven integration.</li>
+          <li>Tested ServiceNow ITSM/WESS workflows across Incident, Change, Problem and Service Catalog, including order guides, approvals and RITM/SCTASK lifecycle.</li>
+          <li>Created test plans and strategies, maintained RTMs, and executed functional, regression, smoke, SIT and UAT cycles across ServiceNow and Guidewire.</li>
+          <li>Tested Guidewire PolicyCenter and BillingCenter workflows covering invoicing, payments, refunds, write-offs and delinquency; validated P3 payment scenarios through Postman and MS SQL.</li>
+          <li>Validated 150–200 IVR call flows during the Avaya-to-Amazon Connect migration for Billing and Claims operations.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="jobtop"><div><h3>Accenture Solutions Pvt Ltd</h3><div class="meta">Test Engineering Senior Analyst · Chennai</div></div><div class="date">Jun 2017 – Jan 2022</div></div>
+        <div class="client">Healthcare · Kaiser Permanente</div>
+        <ul>
+          <li>Led an 8-member QA team as module test lead within a 100+ member project and mentored junior testers in automation practices and Agile QA standards.</li>
+          <li>Served as Offshore Point of Contact, shared daily progress updates and coordinated UAT preparation, test summaries and release sign-off.</li>
+          <li>Maintained and enhanced Selenium WebDriver scripts using Java and TestNG, with Page Object Model, Page Factory and data-driven testing.</li>
+          <li>Managed a regression suite of approximately 2,000 test cases and executed 200–400 functional end-to-end test cases during feature release cycles.</li>
+          <li>Authored test strategies and maintained RTM coverage; executed functional, regression, smoke, SIT and UAT testing.</li>
+          <li>Performed SOAP/REST testing using SOAPUI and Postman and validated API/backend data consistency using SQL.</li>
+          <li>Contributed to Agile ceremonies and collaborated with business analysts and developers on requirements and test alignment.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section-head"><div class="kicker">Selected work</div><h2>Project highlights</h2><p class="sub">Representative areas of testing and quality engineering from my experience.</p></div>
+    <div class="project-grid">
+      <article class="project"><h3>Retail MDM & Backend Automation</h3><p>Sprint-based MDM workflow testing, REST API automation, Playwright UI automation, PostgreSQL validation and Kafka event-flow verification.</p><div class="tags"><span class="tag">Playwright</span><span class="tag">REST Assured</span><span class="tag">PostgreSQL</span><span class="tag">Kafka</span></div></article>
+      <article class="project"><h3>ServiceNow ITSM / WESS</h3><p>End-to-end testing of Incident, Change, Problem and Service Catalog workflows, approvals, order guides and request fulfilment lifecycle.</p><div class="tags"><span class="tag">ServiceNow</span><span class="tag">JIRA</span><span class="tag">TestRail</span></div></article>
+      <article class="project"><h3>Guidewire & Payment Gateway</h3><p>Functional testing across PolicyCenter and BillingCenter, including billing operations and P3 card/eCheck payment scenarios with API and database validation.</p><div class="tags"><span class="tag">Guidewire</span><span class="tag">Postman</span><span class="tag">MS SQL</span></div></article>
+      <article class="project"><h3>Amazon Connect IVR Migration</h3><p>Validated IVR call-handling logic, prompt accuracy and backend data consistency across 150–200 Billing and Claims call flows during migration from Avaya.</p><div class="tags"><span class="tag">Amazon Connect</span><span class="tag">IVR</span><span class="tag">End-to-end Testing</span></div></article>
+      <article class="project"><h3>Healthcare Application QA</h3><p>Managed large regression coverage, executed functional end-to-end testing and validated SOAP/REST services and backend records for a healthcare application.</p><div class="tags"><span class="tag">Selenium</span><span class="tag">SOAPUI</span><span class="tag">SQL</span></div></article>
+      <article class="project"><h3>QA Leadership & Delivery</h3><p>Module test leadership, mentoring, test strategy, requirements traceability, defect triage, sprint reporting and UAT/release coordination.</p><div class="tags"><span class="tag">Team Leadership</span><span class="tag">Agile</span><span class="tag">RTM</span></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="certifications">
+    <div class="section-head"><div class="kicker">Learning</div><h2>Certifications & recognition</h2></div>
+    <div class="certs">
+      <div class="cert">Google Gemini Enterprise Agent Development<span>Google</span></div>
+      <div class="cert">Google Gemini Enterprise Deployment<span>Google</span></div>
+      <div class="cert">Certified SAFe® 5 Practitioner<span>Scaled Agile Inc.</span></div>
+      <div class="cert">ServiceNow ATF Micro Certification<span>ServiceNow</span></div>
+      <div class="cert">Advanced Agile: Leadership Techniques<span>Skillsoft</span></div>
+      <div class="cert">Certified Agile Software Development – Scrum<span>Skillsoft</span></div>
+      <div class="cert">Selenium Automation Certification<span>TestLeaf Pvt Ltd</span></div>
+    </div>
+    <div class="panel education" style="margin-top:15px">
+      <div><h3>B.E. — Mechanical Engineering</h3><p>SRM Valliammai Engineering College, Anna University · 2013–2017</p></div>
+      <div class="date">CGPA 7.7 / 10</div>
+    </div>
+    <div class="panel" style="margin-top:15px"><strong style="font-size:13px">Awards</strong><p style="font-size:13px;margin-top:7px">ACE Award FY2020 — Accenture Celebrates Excellence · On the Spot Award — Accenture</p></div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact">
+      <div><div class="kicker" style="color:#91aaff">Get in touch</div><h2>Let’s connect.</h2><p>For QA engineering opportunities, professional discussions or collaboration.</p></div>
+      <div class="contact-links">
+        <a href="mailto:rrenganathan96@gmail.com">Email me ↗</a>
+        <a href="https://www.linkedin.com/in/renganathan18/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© <span id="year">2026</span> Renganathan Ramasamy · Senior QA Engineer</div></footer>
+</body>
+</html>
