@@ -14,45 +14,104 @@
     "Enterprise"
   ],
   "skills": {
-    "UI Automation": ["Playwright", "TypeScript", "Selenium", "Java"],
-    "API Testing": ["REST Assured", "Postman", "SOAPUI"],
-    "Frameworks": ["Cucumber BDD", "TestNG", "Page Object Model"],
-    "Backend": ["Spring Boot", "Kafka", "PostgreSQL", "MS SQL"],
-    "Tools": ["JIRA", "TestRail", "HP ALM", "GitHub Actions", "Jenkins", "Maven"],
-    "Platforms": ["ServiceNow", "Guidewire PolicyCenter", "Guidewire BillingCenter", "Amazon Connect"]
-  },
-  "experience_details": [
-    {
-      "company": "Tata Consultancy Services",
-      "role": "IT Analyst",
-      "period": "Feb 2022 – Present",
-      "clients": ["Sainsbury's", "Mercury Insurance"],
-      "highlights": [
-        "Retail Master Data Management functional testing",
-        "API automation using REST Assured, Java and Cucumber BDD",
-        "UI automation using Playwright and TypeScript",
-        "PostgreSQL database and Kafka integration validation",
-        "ServiceNow ITSM/WESS workflow testing",
-        "Guidewire PolicyCenter and BillingCenter testing",
-        "Amazon Connect IVR migration validation",
-        "AI-assisted test case and automation script generation"
-      ]
-    },
-    {
-      "company": "Accenture Solutions Pvt Ltd",
-      "role": "Test Engineering Senior Analyst",
-      "period": "Jun 2017 – Jan 2022",
-      "client": "Kaiser Permanente",
-      "highlights": [
-        "Led an 8-member QA team",
-        "Maintained Selenium WebDriver automation using Java and TestNG",
-        "Managed approximately 2,000 regression test cases",
-        "Performed SOAP and REST API testing",
-        "Performed SQL backend validation",
-        "Supported functional, regression, SIT and UAT testing"
-      ]
-    }
+  "Test Engineering": [
+    "Test Planning",
+    "Test Strategy",
+    "Test Case Design",
+    "STLC",
+    "RTM",
+    "Defect Lifecycle"
   ],
+  "Testing Types": [
+    "Functional",
+    "Regression",
+    "Smoke",
+    "Integration",
+    "SIT",
+    "UAT",
+    "Exploratory"
+  ],
+  "UI Automation": [
+    "Playwright",
+    "TypeScript",
+    "Selenium",
+    "Java",
+    "TestNG",
+    "POM"
+  ],
+  "API & Integration": [
+    "REST Assured",
+    "Postman",
+    "SOAPUI",
+    "Spring Boot",
+    "Kafka",
+    "Cucumber BDD"
+  ],
+  "Database & Delivery": [
+    "PostgreSQL",
+    "MS SQL",
+    "DBVisualizer",
+    "Maven",
+    "Git",
+    "Jenkins",
+    "GitHub Actions"
+  ],
+  "Platforms & Tools": [
+    "ServiceNow",
+    "Guidewire PolicyCenter",
+    "Guidewire BillingCenter",
+    "Amazon Connect",
+    "JIRA",
+    "TestRail",
+    "HP ALM",
+    "AI Agents / MCP"
+  ]
+},
+ "experience_details": [
+  {
+    "company": "Tata Consultancy Services",
+    "role": "IT Analyst",
+    "period": "Feb 2022 – Present",
+    "projects": [
+      {
+        "client": "Retail · Sainsbury's",
+        "highlights": [
+          "Perform sprint-based functional testing for Master Data Management workflows supporting retail supply chain operations.",
+          "Develop API automation suites for Spring Boot services using REST Assured, Java and Cucumber BDD.",
+          "Design and maintain UI automation tests using Playwright and TypeScript.",
+          "Validate PostgreSQL data changes and Kafka event flows across upstream and downstream systems.",
+          "Use a custom AI agent integrated through MCP to generate test cases and automation scripts from user stories and documentation.",
+          "Trigger and monitor automation builds through GitHub Actions."
+        ]
+      },
+      {
+        "client": "Insurance & Enterprise Services · Mercury Insurance",
+        "highlights": [
+          "Designed and developed a Selenium WebDriver framework using Java, TestNG, Page Object Model and data-driven testing, with Jenkins and Maven integration.",
+          "Tested ServiceNow ITSM/WESS workflows across Incident, Change, Problem and Service Catalog, including order guides, approvals and RITM/SCTASK lifecycle.",
+          "Created test plans and strategies, maintained RTMs, and executed functional, regression, smoke, SIT and UAT cycles.",
+          "Tested Guidewire PolicyCenter and BillingCenter workflows covering invoicing, payments, refunds, write-offs and delinquency.",
+          "Validated P3 payment scenarios through Postman and MS SQL.",
+          "Validated 150–200 IVR call flows during the Avaya-to-Amazon Connect migration."
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Accenture Solutions Pvt Ltd",
+    "role": "Test Engineering Senior Analyst",
+    "period": "Jun 2017 – Jan 2022",
+    "client": "Healthcare · Kaiser Permanente",
+    "highlights": [
+      "Led an 8-member QA team.",
+      "Maintained Selenium WebDriver automation using Java and TestNG.",
+      "Managed approximately 2,000 regression test cases.",
+      "Performed SOAP and REST API testing.",
+      "Performed SQL backend validation.",
+      "Supported functional, regression, SIT and UAT testing."
+    ]
+  }
+],
   "certifications": [
     "Google Gemini Enterprise Agent Development",
     "Google Gemini Enterprise Deployment",
